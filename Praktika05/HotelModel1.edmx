@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bron_num_hotel">
+          <Key>
+            <PropertyRef Name="id_bronirovania" />
+          </Key>
+          <Property Name="id_bronirovania" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="client" Type="varchar" MaxLength="500" />
+          <Property Name="id_hotel_num" Type="varchar" MaxLength="500" />
+          <Property Name="data_bron" Type="varchar" MaxLength="500" />
+          <Property Name="date_poselenia" Type="varchar" MaxLength="500" />
+          <Property Name="date_viezda" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="id_clients" />
+          </Key>
+          <Property Name="id_clients" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FIO" Type="varchar" MaxLength="500" />
+          <Property Name="Pol" Type="varchar" MaxLength="500" />
+          <Property Name="Data_rojdenia" Type="varchar" MaxLength="500" />
+          <Property Name="Seria_pasporta" Type="varchar" MaxLength="500" />
+          <Property Name="Number_pasprota" Type="varchar" MaxLength="500" />
+          <Property Name="Address" Type="varchar" MaxLength="500" />
+          <Property Name="Telephone" Type="varchar" MaxLength="500" />
+          <Property Name="Status_klienta" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Inf_listok">
+          <Key>
+            <PropertyRef Name="id_inf_listka" />
+          </Key>
+          <Property Name="id_inf_listka" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="clients" Type="varchar" MaxLength="500" />
+          <Property Name="date_polychenia" Type="varchar" MaxLength="500" />
+          <Property Name="date_okonchania_deistvia" Type="varchar" MaxLength="500" />
+          <Property Name="num_dogovora" Type="varchar" MaxLength="500" />
+          <Property Name="id_hotel_num" Type="varchar" MaxLength="500" />
+          <Property Name="stoimost_yslyg" Type="varchar" MaxLength="500" />
+          <Property Name="hotel_num" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Nums_hotel">
+          <Key>
+            <PropertyRef Name="id_num_hotel" />
+          </Key>
+          <Property Name="id_num_hotel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="class_comfort" Type="varchar" MaxLength="500" />
+          <Property Name="num_hotel" Type="varchar" MaxLength="500" />
+          <Property Name="etage" Type="varchar" MaxLength="500" />
+          <Property Name="kolichestvo_people" Type="varchar" MaxLength="500" />
+          <Property Name="stoimost_ryb_za_1night" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Oformlenie_poselenia">
+          <Key>
+            <PropertyRef Name="id_oformlenia" />
+          </Key>
+          <Property Name="id_oformlenia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="client" Type="varchar" MaxLength="500" />
+          <Property Name="id_hotel_num" Type="varchar" MaxLength="500" />
+          <Property Name="date_poselenia" Type="varchar" MaxLength="500" />
+          <Property Name="date_viezda" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Status_clients">
+          <Key>
+            <PropertyRef Name="id_status" />
+          </Key>
+          <Property Name="id_status" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="status_name" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6035: В связи "FK_Bron_num_hotel_Clients" имеются столбцы, которые не являются частью ключа таблицы на первичной стороне связи. Связь исключена.
+        <Association Name="FK_Bron_num_hotel_Clients" />-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6035: В связи "FK_Bron_num_hotel_Nums_hotel" имеются столбцы, которые не являются частью ключа таблицы на первичной стороне связи. Связь исключена.
+        <Association Name="FK_Bron_num_hotel_Nums_hotel" />-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6035: В связи "FK_Clients_Status_clients" имеются столбцы, которые не являются частью ключа таблицы на первичной стороне связи. Связь исключена.
+        <Association Name="FK_Clients_Status_clients" />-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6035: В связи "FK_Inf_listok_Clients" имеются столбцы, которые не являются частью ключа таблицы на первичной стороне связи. Связь исключена.
+        <Association Name="FK_Inf_listok_Clients" />-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6035: В связи "FK_Inf_listok_Nums_hotel" имеются столбцы, которые не являются частью ключа таблицы на первичной стороне связи. Связь исключена.
+        <Association Name="FK_Inf_listok_Nums_hotel" />-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6035: В связи "FK_Oformlenie_poselenia_Clients" имеются столбцы, которые не являются частью ключа таблицы на первичной стороне связи. Связь исключена.
+        <Association Name="FK_Oformlenie_poselenia_Clients" />-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6035: В связи "FK_Oformlenie_poselenia_Nums_hotel" имеются столбцы, которые не являются частью ключа таблицы на первичной стороне связи. Связь исключена.
+        <Association Name="FK_Oformlenie_poselenia_Nums_hotel" />-->
+        <EntityContainer Name="Хранилище ModelContainer">
+          <EntitySet Name="Bron_num_hotel" EntityType="Self.Bron_num_hotel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inf_listok" EntityType="Self.Inf_listok" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Nums_hotel" EntityType="Self.Nums_hotel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Oformlenie_poselenia" EntityType="Self.Oformlenie_poselenia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status_clients" EntityType="Self.Status_clients" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bron_num_hotel">
+          <Key>
+            <PropertyRef Name="id_bronirovania" />
+          </Key>
+          <Property Name="id_bronirovania" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="client" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="id_hotel_num" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="data_bron" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="date_poselenia" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="date_viezda" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="id_clients" />
+          </Key>
+          <Property Name="id_clients" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FIO" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Pol" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Data_rojdenia" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Seria_pasporta" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Number_pasprota" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Telephone" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Status_klienta" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Inf_listok">
+          <Key>
+            <PropertyRef Name="id_inf_listka" />
+          </Key>
+          <Property Name="id_inf_listka" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="clients" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="date_polychenia" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="date_okonchania_deistvia" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="num_dogovora" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="id_hotel_num" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="stoimost_yslyg" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="hotel_num" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Nums_hotel">
+          <Key>
+            <PropertyRef Name="id_num_hotel" />
+          </Key>
+          <Property Name="id_num_hotel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="class_comfort" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="num_hotel" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="etage" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="kolichestvo_people" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="stoimost_ryb_za_1night" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Oformlenie_poselenia">
+          <Key>
+            <PropertyRef Name="id_oformlenia" />
+          </Key>
+          <Property Name="id_oformlenia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="client" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="id_hotel_num" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="date_poselenia" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="date_viezda" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Status_clients">
+          <Key>
+            <PropertyRef Name="id_status" />
+          </Key>
+          <Property Name="id_status" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="status_name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="DB_HotelEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bron_num_hotel" EntityType="Self.Bron_num_hotel" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" />
+          <EntitySet Name="Inf_listok" EntityType="Self.Inf_listok" />
+          <EntitySet Name="Nums_hotel" EntityType="Self.Nums_hotel" />
+          <EntitySet Name="Oformlenie_poselenia" EntityType="Self.Oformlenie_poselenia" />
+          <EntitySet Name="Status_clients" EntityType="Self.Status_clients" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="DB_HotelEntities2">
+          <EntitySetMapping Name="Bron_num_hotel">
+            <EntityTypeMapping TypeName="Model.Bron_num_hotel">
+              <MappingFragment StoreEntitySet="Bron_num_hotel">
+                <ScalarProperty Name="id_bronirovania" ColumnName="id_bronirovania" />
+                <ScalarProperty Name="client" ColumnName="client" />
+                <ScalarProperty Name="id_hotel_num" ColumnName="id_hotel_num" />
+                <ScalarProperty Name="data_bron" ColumnName="data_bron" />
+                <ScalarProperty Name="date_poselenia" ColumnName="date_poselenia" />
+                <ScalarProperty Name="date_viezda" ColumnName="date_viezda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="Model.Clients">
+              <MappingFragment StoreEntitySet="Clients">
+                <ScalarProperty Name="id_clients" ColumnName="id_clients" />
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
+                <ScalarProperty Name="Pol" ColumnName="Pol" />
+                <ScalarProperty Name="Data_rojdenia" ColumnName="Data_rojdenia" />
+                <ScalarProperty Name="Seria_pasporta" ColumnName="Seria_pasporta" />
+                <ScalarProperty Name="Number_pasprota" ColumnName="Number_pasprota" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Status_klienta" ColumnName="Status_klienta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inf_listok">
+            <EntityTypeMapping TypeName="Model.Inf_listok">
+              <MappingFragment StoreEntitySet="Inf_listok">
+                <ScalarProperty Name="id_inf_listka" ColumnName="id_inf_listka" />
+                <ScalarProperty Name="clients" ColumnName="clients" />
+                <ScalarProperty Name="date_polychenia" ColumnName="date_polychenia" />
+                <ScalarProperty Name="date_okonchania_deistvia" ColumnName="date_okonchania_deistvia" />
+                <ScalarProperty Name="num_dogovora" ColumnName="num_dogovora" />
+                <ScalarProperty Name="id_hotel_num" ColumnName="id_hotel_num" />
+                <ScalarProperty Name="stoimost_yslyg" ColumnName="stoimost_yslyg" />
+                <ScalarProperty Name="hotel_num" ColumnName="hotel_num" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Nums_hotel">
+            <EntityTypeMapping TypeName="Model.Nums_hotel">
+              <MappingFragment StoreEntitySet="Nums_hotel">
+                <ScalarProperty Name="id_num_hotel" ColumnName="id_num_hotel" />
+                <ScalarProperty Name="class_comfort" ColumnName="class_comfort" />
+                <ScalarProperty Name="num_hotel" ColumnName="num_hotel" />
+                <ScalarProperty Name="etage" ColumnName="etage" />
+                <ScalarProperty Name="kolichestvo_people" ColumnName="kolichestvo_people" />
+                <ScalarProperty Name="stoimost_ryb_za_1night" ColumnName="stoimost_ryb_za_1night" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Oformlenie_poselenia">
+            <EntityTypeMapping TypeName="Model.Oformlenie_poselenia">
+              <MappingFragment StoreEntitySet="Oformlenie_poselenia">
+                <ScalarProperty Name="id_oformlenia" ColumnName="id_oformlenia" />
+                <ScalarProperty Name="client" ColumnName="client" />
+                <ScalarProperty Name="id_hotel_num" ColumnName="id_hotel_num" />
+                <ScalarProperty Name="date_poselenia" ColumnName="date_poselenia" />
+                <ScalarProperty Name="date_viezda" ColumnName="date_viezda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status_clients">
+            <EntityTypeMapping TypeName="Model.Status_clients">
+              <MappingFragment StoreEntitySet="Status_clients">
+                <ScalarProperty Name="id_status" ColumnName="id_status" />
+                <ScalarProperty Name="status_name" ColumnName="status_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

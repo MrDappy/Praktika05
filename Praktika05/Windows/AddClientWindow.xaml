@@ -1,0 +1,44 @@
+﻿<Window x:Class="Praktika05.Windows.AddClientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Praktika05.Windows"
+        mc:Ignorable="d"
+        Title="Просмотр клиентов" Height="800" Width="1200" MinHeight="800" MinWidth="1200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Row="0" x:Name="DataGridClients" AutoGenerateColumns="False" IsReadOnly="True" ColumnWidth="*">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ФИО" Binding="{Binding FIO}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Пол" Binding="{Binding Pol}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Дата рождения" Binding="{Binding Data_rojdenia}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Серия паспорта" Binding="{Binding Seria_pasporta}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Номер паспорта" Binding="{Binding Number_pasprota}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Адрес" Binding="{Binding Address}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Номер телефона" Binding="{Binding Telephone}"></DataGridTextColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="BtnEditClientInfo" Content="Редактировать" Click="BtnEditClientInfo_Click_1"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <WrapPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel x:Name="PaginationPanel1" Orientation="Horizontal">
+                <Button x:Name="GoFirtPageButton1" Content="&lt;&lt;" FontSize="30" Click="GoFirtPageButton1_Click"></Button>
+                <Button x:Name="GoPrevPagButton1" Content="&lt;" FontSize="30" Click="GoPrevPagButton1_Click" Margin="40 0 0 0"></Button>
+                <TextBox x:Name="TxtCurrentPageButton1" TextChanged="TxtCurrentPageButton1_TextChanged" Width="60" Margin="40 0 0 0"></TextBox>
+                <Label x:Name="LbTotalPages1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="40 0 0 0"></Label>
+                <Button x:Name="GoNextPageButton1" Content="&gt;" FontSize="30" Click="GoNextPageButton1_Click" Margin="40 0 0 0"></Button>
+                <Button x:Name="GoLastPageButton1" Content="&gt;&gt;" FontSize="30" Click="GoLastPageButton1_Click" Margin="40 0 0 0"></Button>
+            </StackPanel>
+            <Button x:Name="BtnAddClient1" Click="BtnAddClient1_Click"  Content="Добавить клиента" Margin="40 0 0 0"></Button>
+        </WrapPanel>
+    </Grid>
+</Window>
